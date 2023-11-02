@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ConfigWALL Help</title>
+	<link rel="icon" type="image/x-icon" href="Company_logo.ico">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			border: 7px solid #2b86cb;
+			width: 13%;
+			height: 13%;
+		}
+		header {
+			background-color: #333;
+			color: #fff;
+			padding: 2%;
+		}
+		h1 {
+			margin: 0;
+			font-size: 36px;
+		}
+		nav {
+			background-color: #2b86cb;
+			padding: 1%;
+		}
+		nav ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		nav ul li {
+			display: inline-block;
+			margin-right: 1%;
+		}
+		nav ul li a {
+			color: #ffffff;
+			text-decoration: none;
+			padding: 5px;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+		nav ul li a:hover {
+			background-color: #87b5d8;
+			color: #ffffff;
+		}
+		main {
+			margin: 2%;
+		}
+		h2 {
+			font-size: 24px;
+			margin-top: 4%;
+			color: #2b86cb;
+		}
+		h3 {
+			font-size: 18px;
+			margin-top: 20px;
+			position: relative;
+			width: 85%;
+			background-color: #2b86cb;
+			color: white
+			}
+		p {
+			line-height: 1.25;
+			width: 85%;
+			margin-left: 2%;
+		}
+		ul {
+			width: 85%;
+		}
+		code {
+			background-color: #f8f8f8;
+			border: 1px solid #ddd;
+			padding: 5px;
+			border-radius: 5px;
+			font-family: monospace;
+		}
+		footer {
+			text-align: center;
+			font-size: 75%;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="Comapny_logo.ico" alt="Company Logo" style="float:right">
+		<h1>ConfigWALL Help</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#FWConfigMenu">Main Firewall Configuration Tool</a></li>
+			<li><a href="#S2SVPN">Site to Site VPN</a></li>
+			<li><a href="#SwitchConfig">Switch Configuration Tool</a></li>
+		</ul>
+	</nav>
+	<main>
+		<section id="FWConfigMenu">
+			<h3>Things to note</h3>
+			<p><ul>
+				<li>All of these tools depend on a configuration file that is added to your Downloads folder. It is there if needed and in the case that the SSH connection fails, you can copy and paste the commands from the files directly into a shell of the firewall.</li>
+				<li>If individual menu items are going to be used one after the other, you will need to select Apply Config after each successive configuration.</li>
+				<li>Additionally, if this is going to be a full setup then you will need to login to the firewall for the first time and enable SSH on the LAN or WAN interface if configuring remotely for some reason.</li>
+			</ul></p>
+			<h2><u>Firewall Configuration Menu</u></h2>
+			<h3>Full Setup</h3>
+			<p>After selecting the Firewall Configuration Menu, a menu full of options will appear. If you are configuring a brand new firewall that has not been configured yet then you will want to use Initial/Full Setup. This is going to offer all of the standard options that a new firewall needs. However, these options can also be configured individually with the other menu items. Please note, that this option does not include the Capture ATP settings. So if that option is licensed it will need to be applied separately with that menu item.</p>
+			<h3>Administration</h3>
+			<p>The Administration menu item will allow you to set the name of the router, domain name, username and password. This will be all or nothing, much like many of the options.</p>
+			<h3>LAN</h3>
+			<p>This option will allow you to quickly configure any of of the interfaces for LAN. This will also create the DHCP scope, leaving the first 50 ip addresses out of the scope.</p>
+			<h3>WAN</h3>
+			<p>WAN allows you to set up 1 or 2 WAN interfaces at a time depending on what radio button is ticked in that form.</p>
+			<h3>Clear SSH</h3>
+			<p>If the configuration was applied once completed, this menu option is so that you can easily kill the previous SSH session that was established. The purpose of this would be if you needed to configure a second firewall immediately. It can also be used in conjunction with Set New SW IP (will be talked about later).</p>
+			<h3>Geo-IP</h3>
+			<p>There is no action needed outside of applying config. Selecting this option will set create a text document including the standard blocked countries.</p>
+			<h3>Capture ATP</h3>
+			<p>This option also does not require any additional actions by the user. It will apply all of the options needed to enable Capture ATP. This option will only work if the firewall includes a subscription for it.</p>
+			<h3>Set New SW IP</h3>
+			<p>As mentioned previously, this menu option is for the case where you need to configure successive firewalls and easily allows you to change the IP of the firewall needing to be configured. This can be a public or private IP address.</p>
+			<h3>Clear Variables</h3>
+			<p>This menu item will clear any stored Powershell variables allowing you to start from scratch.</p>
+		</section>
+		<section id="S2SVPN">
+			<h2><u>Site to Site VPN</u></h2>
+			<p>This tool is for a case where you are wanting to set up a site to site VPN between two firewalls quickly. You will need to know the login information for both, as well as the public IP addresses and site codes. Additionally, SSH will need to be enabled on the WAN interfaces that will be used during this setup. Once you have selected Done and OK the output of the configuration will be added to your Downloads folder.</p>
+			<h3>Applying the VPN</h3>
+			<p>After that is confirmed to be in the Downloads folder then you can run the Apply VPN Configuration option from the menu. This will then prompt for the credentials to connect to the firewall. If successful, it should connect to both of the firewalls and apply their respective settings. You will need to either login to check this configuration or try to ping the gateway of the other from the LAN of one of them.</p>
+		</section>
+		<section id="SwitchConfig">
+			<h2><u>Switch Configuration Tool</u></h2>
+			<p>This tool is not currently in production and still needs to be setup. There are some commands included in this tool, but they likely will not work properly.</p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<footer>
+				<p>App Version: 1.0.2</p>
+				<p>Author: Brennon Overton</p>
+			</footer>
+
+			
