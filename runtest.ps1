@@ -1,6 +1,6 @@
-﻿$scriptPath = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "Main_Menu.ps1"
-& $scriptPath
-$SSH_Installed = Get-Module -ListAvailable -Name "Posh-SSH"
+cd "C:\Program Files\ConfigWALL"
+Invoke-Expression -Command .\Main_Menu.ps1
+$SSH_Installed = Get-InstalledModule -Name "Posh-SSH"
 If ($SSH_Installed.Name -ne "Posh-SSH")
 {
 	Install-Module -Name "Posh-SSH"
